@@ -9,3 +9,12 @@ Approach: Using Recurrence Neural Networking architecture’s LSTM (long short t
 1.	To accurately predict future price movements of stocks.
 2.	Implement the program through web
 3.	Improving the program can produce an AI trading bot to dominate the hedge fund industry.
+
+## Group Members
+
+| Name             | ID            | Email  |
+| -------------    |:-------------:| -----:|
+| Sayed Abu Noman Siddik  | 1811655042 | sayed.siddik@northsouth.edu|
+| Anik Kumar Majumdar| 1811954042    | @northsouth.edu |
+| Koushik Sutradhar Joy | 1620179042    |   @northsouth.edu |
+
