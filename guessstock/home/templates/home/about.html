@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>About</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'home/css/about.css'%}">
+</head>
+
+<body>
+	<header>
+		<div class="main">
+			
+			<ul>
+				<li><a href="{% url 'landing-page' %}">Home</a></li>
+				<li class="active"><a href="{% url 'about-page' %}">About</a></li>
+				<li><a href="{% url 'services-page' %}">Services</a></li>
+				<li><a href="{% url 'contact-page' %}">Contact Us</a></li>
+			</ul>
+		</div>
+		<div class="details">
+			<p>For successful investment, many investors are interested in knowing about the future situation of 
+				the market. Effective prediction systems indirectly help traders by providing supportive 
+				information such as the future market direction. As traders doesn’t have technical skills to
+				analyze and forecast data. Stock market prediction is the act of trying to determine the future value of a company stock 
+				traded on an exchange. The successful prediction of a stock’s future price could yield significant 
+				profit. There are a lot of complicated financial indicators and the fluctuation of the stock market 
+				is very violent. Stock market predictor will help to make a better prediction based on the analysis 
+				of provided datasets and reports. Our goal is not to predict accurate stock prices of tomorrow or 
+				the day after tomorrow, Our objective is to analyze historical data of a company and find the 
+				pattern in historical data and how that pattern will flow in future. Our objective is to provide 
+				graphical view of market movements based on historical data, so traders can understand market 
+				condition will go around. Our main objective is to provide a platform for trader so that they don’t 
+				have to buy stock by guessing or blindly believing in faith.
+			</p>
+
+		</div>
+	</header>
+</body>
+</html>

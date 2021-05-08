@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Services</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'home/css/contact.css'%}">
+</head>
+<body>
+	<header>
+		<div class="main">
+			<ul>
+				<li><a href="{% url 'landing-page' %}">Home</a></li>
+				<li><a href="{% url 'about-page' %}">About</a></li>
+				<li><a href="{% url 'services-page' %}">Services</a></li>
+			    <li class="active"><a href="{% url 'services-page' %}">Contact Us</a></li>
+			</ul>
+		</div>
+		<div class="details">
+			<h1>Team Prometheus:</h1><br><br><br>
+			      <h2>Koushik Sutradhar<br>
+			       Email: Koushik.sutradhar@northsouth.edu</h2><br><br><br><br>
+			       <h3>Sayed Abu Noman Siddik<br>
+			       Email: Sayed.siddik@northsouth.edu</h3><br><br><br><br>
+			       <h4>Anik Kumar Majumder<br>
+			       Email: Kumar.majumder@northsouth.edu</h4>
+		</div>
+	</header>
+</body>
+</html>

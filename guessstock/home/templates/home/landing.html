@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Homepage</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css'%}">
+</head>
+<body>
+	<header>
+		<div class="main">
+			<div class="logo">
+				<img src="{% static 'home/images/logo.png'%}">
+			</div>
+
+			<ul>
+				<li class="active"><a href="{% url 'landing-page' %}">Home</a></li>
+				<li><a href="{% url 'about-page' %}">About</a></li>
+				<li><a href="{% url 'services-page' %}">Services</a></li>
+				<li><a href="{% url 'contact-page' %}">Contact Us</a></li>
+			</ul>
+		</div>
+		<div class="title">
+			<h1>Welcome to our website!<h1>
+				<p>Using predictive algorithms, we help our clients to have a better understanding of the market movements.</p>
+		</div>
+		<div class="button">
+			<a href="#" class="btn">Get started</a>
+			
+		</div>
+	</header>
+</body>
+
+</html>
