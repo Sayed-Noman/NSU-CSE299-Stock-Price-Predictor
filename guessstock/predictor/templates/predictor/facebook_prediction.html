@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="public/css/favicon3.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static 'predictor/css/prediction.css'%}">
+    <title>User Portfolio</title>
+</head>
+<body>
+    <section class="header">
+        <h1>Guess-Stock - A stock price predictor</h1>
+        <p>Scroll down to bottom to view stock indicators. <span class="text-danger">Only limted to NASDAQ companies</span></p>
+    </section>
+    <section class="search">
+        <section class="color-1">
+			<nav class="cl-effect-1">
+				<a href="{% url 'facebook_predict' %}">Facebook</a>
+				<a href="{% url 'google_predict' %}">Google</a>
+				<a href="{% url 'tesla_predict' %}">Tesla</a>
+				<a href="{% url 'microsoft_predict' %}">Microsoft</a>
+				<a href="{% url 'amazon_predict' %}">Amazon</a>
+                <a href="{% url 'apple_predict' %}">Apple</a>
+			</nav>
+		</section>
+    </section>
+    <section class="report">
+        <div class="card card9">
+            <p class="text-title">Facebook Market Overview</p>
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
+                {
+                "symbol": "NASDAQ:FB",
+                "width": "100%",
+                "locale": "in",
+                "colorTheme": "light",
+                "isTransparent": true
+                }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+           
+        </div>
+        
+        <div class="card card7">
+            <p class="text-title">Facebook technical analysis</p>
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+                {
+                "interval": "1m",
+                "width": "100%",
+                "isTransparent": true,
+                "height": "100%",
+                "symbol": "NASDAQ:FB",
+                "showIntervalTabs": true,
+                "locale": "in",
+                "colorTheme": "light"
+                }
+            </script>
+            </div>
+            <!-- TradingView Widget END -->
+                        
+        </div>
+        <div class="card card8">
+            <p class="text-title">Facebook Info</p>
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js" async>
+                {
+                "symbol": "NASDAQ:FB",
+                "width": "100%",
+                "height": "100%",
+                "colorTheme": "light",
+                "isTransparent": true,
+                "locale": "in"
+                }
+            </script>
+            </div>
+            <!-- TradingView Widget END --> 
+        </div>
+        
+        <div class="card card10">
+            <p class="text-title">Facebook Predictor</p>
+            
+        </div>
+    </section>
+    <section class="footer">
+        <p>Check out the the github page for more information.</p>
+        <ul>
+            <li><a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a></li>
+            <li><a  href="https://github.com/Sayed-Noman/NSU-CSE299-Stock-Price-Predictor" target="_blank"><i class="fab fa-github"></i></a></li>
+        </ul>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
+    <script src="js/ticker.js"></script>
+</body>
+</html>

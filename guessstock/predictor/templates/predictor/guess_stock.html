@@ -1,0 +1,360 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="public/css/favicon3.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static 'predictor/css/style.css'%}">
+    <title>User Portfolio</title>
+</head>
+<body>
+    <section class="header">
+        <h1>Guess-Stock - A stock price predictor</h1>
+        <p>Scroll down to bottom to view stock indicators. <span class="text-danger">Only limted to NASDAQ companies</span></p>
+        <p>To see Predictions click on, <span class="text-danger"><a href="{% url 'google_predict' %}">Next Page</a></span></p>
+    </section>
+    <section class="search">
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+        </div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+            "symbols": [
+            {
+                "description": "OPEN",
+                "proName": "NASDAQ:GOOGL"
+            },
+            {
+                "description": "OPEN",
+                "proName": "NASDAQ:AAPL"
+            },
+            {
+                "description": "OPEN",
+                "proName": "NASDAQ:TSLA"
+            },
+            {
+                "description": "OPEN",
+                "proName": "NASDAQ:MSFT"
+            },
+            {
+                "description": "OPEN",
+                "proName": "NASDAQ:AMZN"
+            },
+            {
+                "description": "OPEN",
+                "proName": "NASDAQ:GOOG"
+            },
+            {
+                "description": "OPEN",
+                "proName": "NASDAQ:FB"
+            }
+            ],
+            "showSymbolLogo": true,
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "displayMode": "adaptive",
+            "locale": "in"
+        }
+    </script>
+    <!-- TradingView Widget END -->
+    </section>
+    <section class="report">
+        <div class="card card1" id="data1">
+            <p class="text-title">Google price and change percentage</p>
+            <p>
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+                        {
+                        "symbol": "NASDAQ:GOOGL",
+                        "width": "100%",
+                        "colorTheme": "light",
+                        "isTransparent": true,
+                        "locale": "in"
+                        }
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </p>
+        </div>
+        <div class="card card2">
+            <p class="text-title">Facebook price and change percentage</p>
+            <p>
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+                        {
+                        "symbol": "NASDAQ:FB",
+                        "width": "100%",
+                        "colorTheme": "light",
+                        "isTransparent": true,
+                        "locale": "in"
+                        }
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </p>
+        </div>
+        <div class="card card3">
+            <p class="text-title">Tesla price and change percentage</p>
+            <p>
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+                        {
+                        "symbol": "NASDAQ:TSLA",
+                        "width": "100%",
+                        "colorTheme": "light",
+                        "isTransparent": true,
+                        "locale": "in"
+                        }
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </p>
+        </div>
+        <div class="card card4">
+            <p class="text-title">Apple price and change percentage</p>
+            <p>
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+                        {
+                        "symbol": "NASDAQ:AAPL",
+                        "width": "100%",
+                        "colorTheme": "light",
+                        "isTransparent": true,
+                        "locale": "in"
+                        }
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </p>
+        </div>
+        <div class="card card5">
+            <p class="text-title">Microsoft price and change percentage</p>
+            <p>
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+                        {
+                        "symbol": "NASDAQ:MSFT",
+                        "width": "100%",
+                        "colorTheme": "light",
+                        "isTransparent": true,
+                        "locale": "in"
+                        }
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </p>
+        </div>
+        <div class="card card6">
+            <p class="text-title">Nvidia price and change percentage</p>
+            <p>
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+                        {
+                        "symbol": "NASDAQ:NVDA",
+                        "width": "100%",
+                        "colorTheme": "light",
+                        "isTransparent": true,
+                        "locale": "in"
+                        }
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </p>
+        </div>
+        <div class="card card7">
+            <p class="text-title">Top five Gainers and Losers</p>
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
+                        {
+                        "colorTheme": "light",
+                        "dateRange": "12M",
+                        "exchange": "NASDAQ",
+                        "showChart": true,
+                        "locale": "in",
+                        "width": "100%",
+                        "height": "99%",
+                        "largeChartUrl": "",
+                        "isTransparent": true,
+                        "showSymbolLogo": false,
+                        "plotLineColorGrowing": "rgba(33, 150, 243, 1)",
+                        "plotLineColorFalling": "rgba(255, 0, 0, 1)",
+                        "gridLineColor": "rgba(242, 242, 242, 1)",
+                        "scaleFontColor": "rgba(0, 0, 0, 1)",
+                        "belowLineFillColorGrowing": "rgba(159, 197, 232, 0.41)",
+                        "belowLineFillColorFalling": "rgba(234, 153, 153, 0.53)",
+                        "symbolActiveColor": "rgba(33, 150, 243, 0.12)"
+                        }
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+        </div>
+        <div class="card card8">
+            <p class="text-title">NASDAQ Screener</p>
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div id="tradingview_db1bd"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                    <script type="text/javascript">
+                        new TradingView.MediumWidget(
+                        {
+                        "symbols": [
+                            [
+                            "Apple",
+                            "AAPL"
+                            ],
+                            [
+                            "Google",
+                            "GOOGL"
+                            ],
+                            [
+                            "Microsoft",
+                            "MSFT"
+                            ],
+                            [
+                            "Nvidia",
+                            "NASDAQ:NVDA|ALL"
+                            ],
+                            [
+                            "Facebook",
+                            "NASDAQ:FB|ALL"
+                            ],
+                            [
+                            "Tesla",
+                            "NASDAQ:TSLA|ALL"
+                            ]
+                        ],
+                        "chartOnly": false,
+                        "width": "100%",
+                        "height": "550",
+                        "locale": "in",
+                        "colorTheme": "light",
+                        "gridLineColor": "#F0F3FA",
+                        "trendLineColor": "#2196F3",
+                        "fontColor": "rgba(0, 0, 0, 1)",
+                        "underLineColor": "#E3F2FD",
+                        "isTransparent": true,
+                        "autosize": true,
+                        "container_id": "tradingview_db1bd"
+                        }
+                        );
+                    </script>
+            </div>
+            <!-- TradingView Widget END -->
+            
+        </div>
+        <div class="card card9">
+            <p class="text-title">NASDAQ Screener</p>
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+                    {
+                    "width": "100%",
+                    "height": "512",
+                    "defaultColumn": "overview",
+                    "defaultScreen": "most_capitalized",
+                    "market": "america",
+                    "showToolbar": true,
+                    "colorTheme": "light",
+                    "locale": "in",
+                    "isTransparent": true
+                    }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
+        <div class="card card10">
+            <p class="text-title">Volume Details</p>
+            <div class="custom-select">
+                <h4>Select a Company Ticker: </h4>
+                <select  class="select-css" onchange="loadCharts();" name="tickers-names" id="pairs">
+                    <option value="AAPL">Apple</option>
+                    <option value="FB">Facebook</option>
+                    <option value="GOOGL">Google</option>
+                    <option value="TSLA">Tesla</option>
+                </select>
+            </div>
+            <div class="graph-content">
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container" id="chart-container"></div>
+                <!-- TradingView Widget END -->
+            </div>
+            <script>
+                //Load Chart
+                loadCharts();
+
+                //Pass ticker Symbols
+                var symbol = ticker.company_ticker, markup='';
+                console.log(symbol);
+                symbol.forEach(sym => {
+                    markup += '<option value="' + sym.symbol + '">Apple</option>';
+                });
+
+                function loadCharts(){
+                    //get Symbol
+                    let symbol =document.getElementById('pairs').value;
+                    //Render Chart elements
+                    new TradingView.widget(
+                    {
+                        "width": 980,
+                        "height": 610,
+                        "symbol": "NASDAQ:" + symbol,
+                        "interval": "D",
+                        "timezone": "Etc/UTC",
+                        "theme": "light",
+                        "style": "2",
+                        "locale": "en",
+                        "toolbar_bg": "#f1f3f6",
+                        "enable_publishing": false,
+                        "hide_side_toolbar": false,
+                        "allow_symbol_change": true,
+                        "watchlist": [
+                            "NASDAQ:GOOGL",
+                            "NASDAQ:FB",
+                            "NASDAQ:AAPL",
+                            "NASDAQ:TSLA"
+                        ],
+                        "hotlist": true,
+                        "calendar": true,
+                        "show_popup_button": true,
+                        "popup_width": "1000",
+                        "popup_height": "650",
+                        "container_id": "chart-container"
+                    });
+                }
+            </script>   
+        </div>
+    </section>
+    <section class="footer">
+        <p>Check out the the github page for more information.</p>
+        <ul>
+            <li><a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a></li>
+            <li><a  href="https://github.com/Sayed-Noman/NSU-CSE299-Stock-Price-Predictor" target="_blank"><i class="fab fa-github"></i></a></li>
+        </ul>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
+    <script src="js/ticker.js"></script>
+</body>
+</html>
