@@ -2,7 +2,7 @@ from django.urls import path
 from  predictor import  views
 
 urlpatterns = [
-    path('guess-stock/',views.guess_stock,name='guees_stock'),
+    path('guess-stock/',views.guess_stock,name='guess_stock'),
     path('amazon-predict/',views.amazon_prediction,name='amazon_predict'),
     path('facebook-predict/',views.facebook_prediction,name='facebook_predict'),
     path('tesla-predict/',views.tesla_prediction,name='tesla_predict'),
