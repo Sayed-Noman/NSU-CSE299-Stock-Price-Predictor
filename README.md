@@ -14,7 +14,7 @@ Approach: Using Recurrence Neural Networking architecture’s LSTM (long short t
 
 | Name             | ID            | Email  |
 | -------------    |:-------------:| -----:|
-| Sayed Abu Noman Siddik  | 1811655042 | sayed.siddik@northsouth.edu|
-| Anik Kumar Majumdar| 1811954042    | @northsouth.edu |
-| Koushik Sutradhar Joy | 1620179042    |   @northsouth.edu |
+| Sayed Abu Noman Siddik  | 1811655042 | sayed.siddik@northsouth.edu |
+| Anik Kumar Majumdar| 1811954042    | Kumar.majumder@northsouth.edu |
+| Koushik Sutradhar Joy | 1620179042    |   Koushik.sutradhar@northsouth.edu |
 
