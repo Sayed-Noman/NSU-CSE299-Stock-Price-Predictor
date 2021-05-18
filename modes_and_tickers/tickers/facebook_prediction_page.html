@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,38 +6,35 @@
     <link rel="shortcut icon" href="public/css/favicon3.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="{% static 'predictor/css/prediction.css'%}">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
-    <title>Google-Predictor</title>
+    <link rel="stylesheet" href="css/prediction.css">
+    <title>User Portfolio</title>
 </head>
 <body>
     <section class="header">
         <h1>Guess-Stock - A stock price predictor</h1>
         <p>Scroll down to bottom to view stock indicators. <span class="text-danger">Only limted to NASDAQ companies</span></p>
-        <p>To see Stock Ticker click on, <span class="text-danger"><a href="{% url 'guess_stock' %}">Previous Page</a></span></p>
-        <p>To Exit from the web click on, <span class="text-danger"><a href="{% url 'signout' %}">Logout</a></span></p>
     </section>
     <section class="search">
         <section class="color-1">
 			<nav class="cl-effect-1">
-				<a href="{% url 'facebook_predict' %}">Facebook</a>
-				<a href="{% url 'google_predict' %}">Google</a>
-				<a href="{% url 'tesla_predict' %}">Tesla</a>
-				<a href="{% url 'microsoft_predict' %}">Microsoft</a>
-				<a href="{% url 'amazon_predict' %}">Amazon</a>
-                <a href="{% url 'apple_predict' %}">Apple</a>
+				<a href="#">Facebook</a>
+				<a href="#">Google</a>
+				<a href="#">Tesla</a>
+				<a href="#">Microsoft</a>
+				<a href="#">Amazon</a>
+                <a href="#">Apple</a>
 			</nav>
 		</section>
     </section>
     <section class="report">
         <div class="card card9">
-            <p class="text-title">Google Market Overview</p>
+            <p class="text-title">Facebook Market Overview</p>
             <!-- TradingView Widget BEGIN -->
             <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
                 {
-                "symbol": "NASDAQ:GOOGL",
+                "symbol": "NASDAQ:FB",
                 "width": "100%",
                 "locale": "in",
                 "colorTheme": "light",
@@ -51,7 +47,7 @@
         </div>
         
         <div class="card card7">
-            <p class="text-title">Google technical analysis</p>
+            <p class="text-title">Facebook technical analysis</p>
             <!-- TradingView Widget BEGIN -->
             <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
@@ -61,7 +57,7 @@
                 "width": "100%",
                 "isTransparent": true,
                 "height": "100%",
-                "symbol": "NASDAQ:GOOGL",
+                "symbol": "NASDAQ:FB",
                 "showIntervalTabs": true,
                 "locale": "in",
                 "colorTheme": "light"
@@ -72,13 +68,13 @@
                         
         </div>
         <div class="card card8">
-            <p class="text-title">Google Info</p>
+            <p class="text-title">Facebook Info</p>
             <!-- TradingView Widget BEGIN -->
             <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js" async>
                 {
-                "symbol": "NASDAQ:GOOGL",
+                "symbol": "NASDAQ:FB",
                 "width": "100%",
                 "height": "100%",
                 "colorTheme": "light",
@@ -91,79 +87,7 @@
         </div>
         
         <div class="card card10">
-            <p class="text-title">Google Predictor</p>
-            <canvas id="line-chart" width="100%" height="40px"></canvas>
-            <script>
-            const config = {
-                type: "line",
-                data: {
-                    labels: [],
-                    datasets: [{
-                    data: [], // Set initially to empty data
-                    label: "open",
-                    borderColor: "#3e95cd",
-                    fill: true
-                    },
-                    {
-                    data: [], // Set initially to empty data
-                    label: "predictions",
-                    borderColor: "#FF0000",
-                    fill: true
-                    }]
-                },
-                options: {
-                    scales: {
-                    xAxes: [{
-                        type: "time",
-                        distribution: "linear"
-                    }],
-                    title: {
-                        display: false
-                    }
-                    }
-                }
-            };
-
-            const ctx = document.querySelector("#line-chart").getContext("2d");
-            const lineChart = new Chart(ctx, config);
-
-            const csvToChartData = csv => {
-            const lines = csv.trim().split("\n");
-            lines.shift(); // remove titles (first line)
-            return lines.map(line => {
-                const [date, high,low,open,close,volume,adj_close,predictions] = line.split(",");
-                return {
-                x: date,
-                y: open
-                };
-            });
-            };
-
-            const csvToChartData1 = csv => {
-            const lines = csv.trim().split("\n");
-            lines.shift(); // remove titles (first line)
-            return lines.map(line => {
-                const [date, high,low,open,close,volume,adj_close,predictions] = line.split(",");
-                return {
-                x: date,
-                y: predictions
-                };
-            });
-            };
-
-            csv_file_name= "{% static 'predictor/js/data_frame_google.csv'%}"
-
-            const fetchCSV = () => fetch(csv_file_name)
-            .then(data => data.text())
-            .then(csv => {
-                lineChart.data.datasets[0].data = csvToChartData(csv);
-                lineChart.data.datasets[1].data = csvToChartData1(csv);
-                lineChart.update();
-                setTimeout(fetchCSV, 5000); // Repeat every 5 sec
-            });
-
-            fetchCSV(); // First fetch!
-            </script>
+            <p class="text-title">Facebook Predictor</p>
             
         </div>
     </section>

@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="{% static 'predictor/css/style.css'%}">
-    <title>User Portfolio</title>
+    <title>Guess-stock Home</title>
 </head>
 <body>
     <section class="header">
         <h1>Guess-Stock - A stock price predictor</h1>
         <p>Scroll down to bottom to view stock indicators. <span class="text-danger">Only limted to NASDAQ companies</span></p>
         <p>To see Predictions click on, <span class="text-danger"><a href="{% url 'google_predict' %}">Next Page</a></span></p>
+        <p>To see Exit click on, <span class="text-danger"><a href="{% url 'signout' %}">Logout</a></span></p>
     </section>
     <section class="search">
         <!-- TradingView Widget BEGIN -->

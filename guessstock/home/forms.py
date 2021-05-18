@@ -7,9 +7,9 @@ from django.contrib.auth.models import User
 
 class SignUpForm(UserCreationForm):
     '''
-    This is a conceptual Form representation of Class table for user signup
-    :param ModelForm: It creates built-in html form of django, which handels all validations in django Admin panel.
-    :type ModelForm: model, fields
+    This is a conceptual Form representation of class table for user signup
+    :param UserCreationForm: It creates built-in html form of django, which handels all validations in django Admin panel.
+    :type UserCreationForm: model, fields
 
     '''
     first_name = forms.CharField(label='First Name', max_length=100)
@@ -28,6 +28,12 @@ class SignUpForm(UserCreationForm):
 
 
 class LoginForm(forms.Form):
+    '''
+    This is a conceptual Form representation of class table for user signin
+    :param forms.Form: It creates built-in html form of django, which handels all validations in django Admin panel.
+    :type forms.Form: model, fields
+
+    '''
     username = forms.CharField(max_length=100,widget=forms.TextInput(
         attrs={'class': "form-control", 'placeholder': "Username"}))
     password=forms.CharField(widget=forms.PasswordInput(attrs={'class': "form-control", 'placeholder': "password"}))

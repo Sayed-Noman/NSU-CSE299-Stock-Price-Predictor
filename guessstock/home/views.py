@@ -95,5 +95,11 @@ def signin(request):
 
 @login_required
 def signout(request):
+    '''
+    This will redirect the url to the landing page
+    :type request: HttpResponse
+    :param request: Takes the request to show landing.html
+    
+    '''
     logout(request)
     return HttpResponseRedirect(reverse('landing-page'))

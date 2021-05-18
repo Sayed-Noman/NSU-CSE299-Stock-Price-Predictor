@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
+    <title>Csv to Line Graph</title>
+</head>
+<body>
+    <canvas id="line-chart" width="100%" height="40px"></canvas>
+    <script>
+       const config = {
+  type: "line",
+  data: {
+    labels: [],
+    datasets: [{
+      data: [], // Set initially to empty data
+      label: "low",
+      borderColor: "#3e95cd",
+      fill: true
+    },]
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        type: "time",
+        distribution: "linear"
+      }],
+      title: {
+        display: false
+      }
+    }
+  }
+};
+
+const ctx = document.querySelector("#line-chart").getContext("2d");
+const lineChart = new Chart(ctx, config);
+
+const csvToChartData = csv => {
+  const lines = csv.trim().split("\n");
+  lines.shift(); // remove titles (first line)
+  return lines.map(line => {
+    const [date, low] = line.split(",");
+    return {
+      x: date,
+      y: low
+    };
+  });
+};
+
+const fetchCSV = () => fetch("data_frame.csv")
+  .then(data => data.text())
+  .then(csv => {
+    lineChart.data.datasets[0].data = csvToChartData(csv);
+    lineChart.update();
+    setTimeout(fetchCSV, 5000); // Repeat every 5 sec
+  });
+
+fetchCSV(); // First fetch!
+
+
+
+       
+
+    </script>
+    
+</body>
+</html>
