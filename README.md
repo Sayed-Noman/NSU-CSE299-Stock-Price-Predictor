@@ -20,4 +20,4 @@ Approach: Using Recurrence Neural Networking architecture’s LSTM (long short t
 
 ## Web-App Front-End
 <img src="modes_and_tickers/guess-stock-home.png">
-<img src="modes_and_tickers/guess-stock-predict.png">
+<img src="modes_and_tickers/guess-stock-predict.png">  
