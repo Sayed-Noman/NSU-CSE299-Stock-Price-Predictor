@@ -10,6 +10,10 @@ Approach: Using Recurrence Neural Networking architecture’s LSTM (long short t
 2.	Implement the program through web
 3.	Improving the program can produce an AI trading bot to dominate the hedge fund industry.
 
+# Web-App Front-End
+<img src="modes_and_tickers/guess-stock-home.png">
+<img src="modes_and_tickers/guess-stock-predict.png">
+
 ## Group Members
 
 | Name             | ID            | Email  |
